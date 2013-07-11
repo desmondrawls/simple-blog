@@ -1,0 +1,48 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Title:</b>
+  <%= @post.title %>
+</p>
+
+<p>
+  <b>Content:</b>
+  <%= @post.content %>
+</p>
+
+<p>
+  <b>User:</b>
+  <%= @post.user_id %>
+</p>
+
+<h2>Comments</h2>
+<% @post.comments.each do |comment| %>
+<p>
+  <b>Comment Author:</b>
+  <%=comment.author_name  %>
+</p>
+
+<p>
+  <%=comment.body %>
+</p>
+<% end %>
+
+<h2>I didn't copy this from Jen:</h2>
+<%= form_for([@post, @post.comments.build]) do |f| %>
+<div class="field">
+  <%= f.label :author_name %><br/>
+  <%= f.text_field :author_name %>
+</div>
+<div class="field">
+  <%= f.label :discussion %><br/>
+  <%= f.text_field :discussion %>
+</div>
+<div class="action">
+  <%= f.submit %>
+</div>
+<% end %>
+
+<br/>
+
+<%= link_to 'Edit', edit_user_post_path(@post.user, @post) %> |
+<%= link_to 'Back', user_posts_path(@post.user) %>
