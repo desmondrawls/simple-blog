@@ -1,0 +1,17 @@
+<!-- <h2>I didn't copy this from Jen:</h2>
+<%= form_for([@post, @post.comments.build]) do |f| %>
+<div class="field">
+  <%= f.label :author_name %><br/>
+  <%= f.text_field :author_name %>
+</div>
+<div class="field">
+  <%= f.label :discussion %><br/>
+  <%= f.text_field :discussion %>
+</div>
+<div class="action">
+  <%= f.submit %>
+</div>
+<% end %> -->
+
+<%= link_to 'Edit', edit_user_post_path(@post.user, @post) %> |
+<%= link_to 'Back', user_posts_path(@post.user) %>

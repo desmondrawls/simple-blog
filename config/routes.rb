@@ -1,4 +1,9 @@
 Authblog2::Application.routes.draw do
+
+
+  post "users/:user_id/posts/:post_id/comments/" => 'comments#create'
+
+
   resources :users do
     resources :posts
   end

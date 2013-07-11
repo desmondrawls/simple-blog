@@ -23,24 +23,22 @@
 </p>
 
 <p>
-  <%=comment.body %>
+  <%=comment.discussion %>
 </p>
 <% end %>
 
-<h2>I didn't copy this from Jen:</h2>
-<%= form_for([@post, @post.comments.build]) do |f| %>
-<div class="field">
-  <%= f.label :author_name %><br/>
-  <%= f.text_field :author_name %>
-</div>
-<div class="field">
-  <%= f.label :discussion %><br/>
-  <%= f.text_field :discussion %>
-</div>
-<div class="action">
-  <%= f.submit %>
-</div>
-<% end %>
+<%= form_tag("/users/#{@post.user_id}/posts/#{@post.id}/comments") %>
+  <div class="field">
+    <%= label_tag 'comment[author_name]', 'Your name:' %>
+      <%= text_field_tag 'comment[author_name]' %>
+  </div>
+  <div class="field">
+    <%= label_tag 'comment[discussion]', 'Comment:' %>
+      <%= text_field_tag 'comment[discussion]' %>
+  </div>
+  <div class="action">
+  <%= submit_tag %>
+  </div>
 
 <br/>
 
